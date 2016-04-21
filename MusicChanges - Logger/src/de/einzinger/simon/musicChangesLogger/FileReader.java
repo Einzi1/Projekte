@@ -15,6 +15,7 @@ import java.util.logging.SimpleFormatter;
 public class FileReader {
 
 	private static final String DESTINATION_PATH = "H:/Testmusik/musikLog.log";
+	// private static final String DESTINATION_PATH = "D:/Media/Musik";
 
 	public void printFiles(File[] files) {
 		for (File file : files) {
@@ -24,8 +25,6 @@ public class FileReader {
 				DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
 				String today = formatter.format(new Date(System.currentTimeMillis()));
 				String date = formatter.format(new Date(file.lastModified()));
-				// String output = date + " | " + file.getParent() + " | " +
-				// file.getName();
 				String output = date + " | " + file.getAbsolutePath();
 				if (date.equals(today)) {
 					System.out.println(output);
