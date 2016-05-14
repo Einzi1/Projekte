@@ -5,8 +5,8 @@ import java.util.logging.LogManager;
 
 public class Main {
 
-	private static final String PATH = "H:/Testmusik";
-	// private static final String PATH = "D:/Media/LogFiles";
+//	private static final String PATH = "H:/Testmusik";
+	 private static final String PATH = "D:/Media/Musik";
 
 	public static void main(String[] args) {
 		System.setProperty("java.util.logging.config.file", "logging.properties");

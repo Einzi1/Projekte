@@ -14,8 +14,9 @@ import java.util.logging.SimpleFormatter;
 
 public class FileReader {
 
-	private static final String DESTINATION_PATH = "H:/Testmusik/musikLog.log";
-	// private static final String DESTINATION_PATH = "D:/Media/Musik";
+	// private static final String DESTINATION_PATH =
+	// "H:/Testmusik/musikLog.log";
+	private static final String DESTINATION_PATH = "D:/Media/LogFiles/musicChangesLog.log";
 
 	public void printFiles(File[] files) {
 		for (File file : files) {
@@ -36,18 +37,18 @@ public class FileReader {
 
 	private void log(String output) {
 		Logger logger = Logger.getLogger(this.getClass().getName());
-		Handler handler = null;
 		try {
-			handler = new FileHandler(DESTINATION_PATH, true);
+			Handler handler = new FileHandler(DESTINATION_PATH, true);
+			handler = new FileHandler();
 			Formatter formatter = new SimpleFormatter();
 			handler.setFormatter(formatter);
 			logger.addHandler(handler);
+			logger.setLevel(Level.INFO);
+			logger.info(output);
+			handler.close();
 		} catch (SecurityException | IOException e) {
-
+			e.printStackTrace();
 		}
 
-		logger.setLevel(Level.INFO);
-		logger.info(output);
-		handler.close();
 	}
 }
